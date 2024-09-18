@@ -10,8 +10,8 @@ public class BookShelf {
         return myBooks.size();
     }
 
-    public void addBooks(String title, String author) {
-        books = new MyBook(title, author);
+    public void addBooks(String title, String author, BookCategory category) {
+        books = new MyBook(title, author, category);
         myBooks.add(books);
     }
 
@@ -24,13 +24,16 @@ public class BookShelf {
 
     }
 
-    public short search(String titleOrAuthor) {
+    public short search(String title_author_category) {
         short bookCount = 0;
         for(MyBook book : myBooks) {
-            if (book.getTitle().equals(titleOrAuthor)){
+            if (book.getTitle().equals(title_author_category)){
                 bookCount += 1;
             }
-            if (book.getauthor().equals(titleOrAuthor)) {
+            if (book.getauthor().equals(title_author_category)) {
+                bookCount += 1;
+            }
+            if(book.getauthor().contains(title_author_category) || book.getTitle().contains(title_author_category)) {
                 bookCount += 1;
             }
         }
