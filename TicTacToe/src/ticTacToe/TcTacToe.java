@@ -1,5 +1,4 @@
 package ticTacToe;
-import java.util.stream.*;
 
 public class TcTacToe {
     static int[] playingBoard() {
